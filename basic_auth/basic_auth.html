@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <title>HTTP Auth with HTML forms</title>
+        <script type="text/javascript" src="httpauth.js"></script>
+        <style src="mystyle.css" type="text/css"></style>
+    </head>
+    <body>
+        <h1>HTTP Auth with HTML forms</h1>
+        <p>This page demonstrates using Javascript to add a HTML form interface to a HTTP Auth
+        protected URL. <a href="/articles/http-auth-with-html-forms.html">A detailed discussion
+        of this technique can be found here</a> and <a href="httpauth.js">the Javascript file that makes it all
+        work is here</a>.</p>
+        <p><strong>Note:</strong> The log out option is known not to work in Internet Explorer due
+        to the way IE handles remembering incorrect auth credentials.</p>
+        <p>To test this out, try accessing <a href="private.php">the protected resource</a> with
+        correct and incorrect credentials, the username "user" and password "password" will let
+        you in.</p>
+        <a class="httpauth" id="basic" href="http://www.peej.co.uk/sandbox/htmlhttpauth/private.php">Log in with Basic Auth</a>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+body {
+    font-family: Arial;
+    color: #345;
+}
+h1 {
+    border-bottom: 3px solid #345;
+}
+a {
+    color: #666;
+}
+li {
+    padding: 2px;
+}
+sup.new {
+    text-transform: uppercase;
+    color: #f00;
+    font-weight: bold;
+}
+form label, form a {
+    display: block;
+    margin: 10px 0;
+}
+form label input {
+    margin-left: 5px;
+}

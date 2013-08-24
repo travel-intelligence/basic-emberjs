@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+  <head>
+  <!--JS libraries-->
+  <script src="js/jquery-1.9.1.js"></script>
+  <script src="js/handlebars-1.0.0.js"></script>
+  <script src="js/ember-1.0.0.js"></script>
+  <script src="js/ember-data.js"></script>
+  <script src="js/highcharts.js"></script>
+  
+  <!--Source code-->
+  <script src="app.js"></script>
+  <script language="javascript" type="text/javascript">
+    $.ajax({
+      type: "POST",
+      url: "https://travel-intelligence.com/api/session",
+      data: {
+        email: "user@email.com",
+        password: "mypassword",
+        remember: true
+      },
+      success: function(d){alert(d.auth_token)},
+      dataType: "json"
+    });
+  </script>
+  
+  <title>Travel Intelligence</title>
+</head>
+
+<body>
+  <script type="text/x-handlebars" data-template-name="application">
+    {{ render traffic }}
+  </script> 
+  
+  <script type="text/x-handlebars" data-template-name="traffic">
+    
+    <label> Level </label>
+    {{view Ember.Select
+      id="level"
+      contentBinding="level.content"
+      valueBinding="level.selected"
+      placeholder="Level"}}
+      
+      
+    <label>  Origin {{ level.selected }} </label>
+    {{ view Ember.TextField
+      id="origin"
+      valueBinding="origin"
+      placeholder= "IATA code" }}
+    
+    <label> Destination {{ level.selected }} </label>
+     {{ view Ember.TextField
+        id="destination"
+        valueBinding="destination"
+        placeholder="IATA code" }}
+
+    <label> Token </label>
+     {{ view Ember.TextField
+        id="token"
+        valueBinding="token"
+        placeholder="Authentication token" }}
+        
+    <div class="tab-pane chart-pane span8" id="year-over-year">
+      <div class="year-over-year-charts">    
+        {{ view App.YearOverYearChartView 
+          dataBinding="content" }} 
+      </div>
+    </div>
+    
+  </script>
+</body>
+</html>
+
