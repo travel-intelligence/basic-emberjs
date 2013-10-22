@@ -2,7 +2,7 @@ var App = Ember.Application.create();
 
 App.Adapter = DS.RESTAdapter.extend({
   namespace: 'api',
-  url: "https://travel-intelligence.com"
+  url: "https://demo.travel-intelligence.com"
 });
   
 App.Adapter.registerTransform('object', {
@@ -30,11 +30,13 @@ App.TrafficController = Ember.Controller.extend({
   }),
   origin: "",
   destination: "",
+  month: "",
   token: "",
   
   loadData: function() {
     var origin = this.get('origin');
     var destination = this.get('destination');
+    var month = this.get('month');
     var level   = this.get('level.selected');
     var token = this.get('token');
     if (origin.length > 2 &&  destination.length > 2 && token.length > 5) {
@@ -42,11 +44,12 @@ App.TrafficController = Ember.Controller.extend({
         origin: origin.toUpperCase(),
         destination: destination.toUpperCase(),
         level: level.slice(0, 4).toLowerCase(),
+        month: month,
         auth_token: token
       });
       this.set('content', data);
     }
-  }.observes ('origin', 'destination', 'level.selected', 'token')
+  }.observes ('origin', 'destination', 'level.selected', 'month', 'token')
 });
 
 App.YearOverYearChartView = Ember.View.extend({
