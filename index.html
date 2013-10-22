@@ -10,21 +10,7 @@
   <script src="js/highcharts.js"></script>
   
   <!--Source code-->
-  <script src="app.js"></script>
-  <script language="javascript" type="text/javascript">
-    $.ajax({
-      type: "POST",
-      url: "https://travel-intelligence.com/api/session",
-      data: {
-        email: "user@email.com",
-        password: "mypassword",
-        remember: true
-      },
-      success: function(d){alert(d.auth_token)},
-      dataType: "json"
-    });
-  </script>
-  
+  <script src="app.js"></script> 
   <title>Travel Intelligence</title>
 </head>
 
@@ -55,6 +41,12 @@
         valueBinding="destination"
         placeholder="IATA code" }}
 
+    <label> Month </label>
+     {{ view Ember.TextField
+        id="month"
+        valueBinding="month"
+        placeholder="Month of look date" }}
+        
     <label> Token </label>
      {{ view Ember.TextField
         id="token"
@@ -70,5 +62,3 @@
     
   </script>
 </body>
-</html>
-
